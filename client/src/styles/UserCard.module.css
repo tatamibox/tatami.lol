@@ -24,3 +24,13 @@
     display: flex;
     flex-direction: column;
 }
+
+.DIAMOND {
+    background-color: red;
+}
+
+.summoner__rank {
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}

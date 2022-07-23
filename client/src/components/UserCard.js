@@ -47,7 +47,7 @@ function UserCard({ user }) {
     return (
         <>
             {user && leagueInfo ? <section className={styles.userCard__container}>
-                <img src={`https://ddragon.leagueoflegends.com/cdn/11.14.1/img/profileicon/${user.profileIconId}.png`} alt='Summoner Icon'></img>
+                <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/profileicon/${user.profileIconId}.png`} alt='Summoner Icon'></img>
                 <div className={styles.summonerInfo}>
                     <h2>{user.name}</h2>
                     <h3>Level {user.summonerLevel}</h3>

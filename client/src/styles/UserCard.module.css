@@ -10,7 +10,7 @@
     align-items: center;
     padding: 2rem;
     gap: 3rem;
-    width: 85%;
+    width: 80%;
     justify-content: center;
 }
 
@@ -46,6 +46,7 @@
 @media only screen and (min-width: 750px) {
     .userCard__container {
         width: 40%;
+        height: fit-content;
 
     }
 }

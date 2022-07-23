@@ -1,16 +1,84 @@
 .card__container {
     border-radius: 20px;
     background-color: #edf2f4;
-    padding: 2rem;
+    padding: 3rem;
+    color: black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    width: 100%;
+    margin-right: 10rem;
+    margin-bottom: 2rem;
+
+    flex-direction: column;
 }
 
+.player__build {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
+}
+
+.player__build img {
+    height: 2rem;
+    width: 2rem;
+}
+
+@media only screen and (min-width: 480px) {
+    .card__container {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .card__container {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .card__container {
+        width: 100%;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+
+
+    .player__build img {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+
+    .player__build {
+        align-items: flex-end;
+
+    }
+}
 
 @media only screen and (min-width: 1400px) {
     .card__container {
-
         width: 100%;
-        margin: auto;
-        margin-bottom: 5rem;
-        min-height: 20rem;
     }
+
+
+}
+
+.gamemode {
+    color: #edf2f4;
+}
+
+.primary__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: white;
+    align-items: center;
+    text-align: center;
+
+}
+
+.champion__images {
+    width: 7rem;
+    height: 7rem;
 }

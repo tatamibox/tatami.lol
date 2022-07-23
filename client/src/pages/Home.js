@@ -56,7 +56,7 @@ function Home() {
 
 
 
-
+    console.log(currentUser)
 
     return (
         <>
@@ -67,7 +67,7 @@ function Home() {
             <main className={styles.__mainContainer}>
                 {currentUser ? <UserCard user={currentUser} /> : <UserCard />}
                 <div className={styles.match__container}>
-                    {matchData && <MatchCard matches={matchData}></MatchCard>}
+                    {matchData && currentUser && <MatchCard matches={matchData} user={currentUser}></MatchCard>}
 
                 </div>
             </main>

@@ -1,0 +1,16 @@
+.card__container {
+    border-radius: 20px;
+    background-color: #edf2f4;
+    padding: 2rem;
+}
+
+
+@media only screen and (min-width: 1400px) {
+    .card__container {
+
+        width: 100%;
+        margin: auto;
+        margin-bottom: 5rem;
+        min-height: 20rem;
+    }
+}

@@ -1,17 +1,17 @@
 .userCard__container {
     background-color: #edf2f4;
-    width: 45%;
-    margin-right: 3rem;
-    margin-left: 3rem;
-    margin-top: 3rem;
+    margin-left: 2rem;
     min-height: 20rem;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    text-align: center;
     align-items: center;
     padding: 2rem;
     gap: 3rem;
+    width: 85%;
+    justify-content: center;
 }
 
 .userCard__container img {
@@ -23,6 +23,8 @@
 .summonerInfo {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .DIAMOND {
@@ -33,4 +35,33 @@
     width: fit-content;
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
+}
+
+@media only screen and (min-width: 480px) {
+    .userCard__container {
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .userCard__container {
+        width: 40%;
+
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .userCard__container {
+        width: 45%;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: initial;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .userCard__container {
+        flex-direction: row;
+        max-height: 23rem;
+    }
 }

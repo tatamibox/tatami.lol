@@ -1,0 +1,17 @@
+.__mainContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 1rem;
+    gap: 4rem;
+
+}
+
+.match__container {
+    width: 45%;
+}
+
+@media only screen and (min-width: 1400px) {
+    .__mainContainer {
+        flex-direction: row;
+    }
+}

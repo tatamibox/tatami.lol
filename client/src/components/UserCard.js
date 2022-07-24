@@ -3,7 +3,7 @@ import styles from '../styles/UserCard.module.css'
 import axios from 'axios'
 import changeBadgeColor from '../util/badge-color'
 
-function UserCard({ user }) {
+function UserCard({ user, wins }) {
 
     // fetches user rank on user load & holds league info (current user rank, etc) and 
     const [leagueInfo, setLeagueInfo] = useState()
@@ -56,7 +56,7 @@ function UserCard({ user }) {
                 <div className={styles.summonerInfo} style={{ gap: '0.5rem' }}>
                     <h4>Ranked wins: <span style={{ backgroundColor: '#96e072', padding: '0.1rem 0.2rem' }}>{leagueInfo.wins}</span></h4>
                     <h4>Ranked losses: <span style={{ backgroundColor: '#f45b69', padding: '0.1rem 0.2rem' }}>{leagueInfo.losses}</span></h4>
-                    <h4>Win / Loss (10 Games): </h4>
+                    <h4>Win % (10 Games): {(wins / 10) * 100} </h4>
 
                 </div>
             </section> : <div></div>}

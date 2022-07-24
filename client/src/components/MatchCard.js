@@ -34,7 +34,9 @@ function MatchCard(props) {
 
 
     }, [allMatches])
-    console.log(playerMatchData)
+    if (playerMatchData) {
+        props.extractPlayerMatchData(playerMatchData)
+    }
 
     return (
         <>

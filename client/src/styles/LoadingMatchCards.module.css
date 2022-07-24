@@ -5,14 +5,12 @@
     color: black;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
-    width: 100%;
-    margin-right: 10rem;
-    margin-bottom: 2rem;
+
+
+
 
     flex-direction: column;
 }
-
-
 
 .player__build {
     display: flex;
@@ -36,10 +34,6 @@
     .card__container {
         width: 100%;
     }
-
-    .matches__section {
-        margin-right: 1.5rem;
-    }
 }
 
 @media only screen and (min-width: 1280px) {
@@ -47,11 +41,6 @@
         width: 100%;
         flex-direction: row;
         gap: 2rem;
-
-    }
-
-    .matches__section {
-        margin-right: 1.5rem;
     }
 
 
@@ -69,18 +58,35 @@
 
 @media only screen and (min-width: 1400px) {
     .card__container {
-        width: 100%;
-
-    }
-
-    .matches__section {
+        width: 42rem;
         margin-right: 1.5rem;
     }
+
 
 }
 
 .gamemode {
-    color: #edf2f4;
+    background-color: grey;
+    white-space: nowrap;
+    width: 20rem;
+    height: 2rem;
+    animation-name: background-color;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes background-color {
+    0% {
+        background-color: #222;
+    }
+
+    50% {
+        background-color: lightgray;
+    }
+
+    100% {
+        background-color: #222;
+    }
 }
 
 .primary__info {
@@ -96,4 +102,9 @@
 .champion__images {
     width: 7rem;
     height: 7rem;
+    background-color: grey;
+    animation-name: background-color;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
 }

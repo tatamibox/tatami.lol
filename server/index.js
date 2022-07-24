@@ -13,26 +13,29 @@ app.listen(3001, () => {
     console.log('Listening on port 3001')
 })
 
-app.post('/userParam', async (req, res) => {
+app.post('/userParam', catchAsync(async (req, res) => {
     const { username } = req.body;
     const userInfo = await axios.get(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${username}?api_key=${API_KEY}`)
         .then((res) => {
             return res.data
         })
+        .catch((err) => {
+            res.status(404, err)
+        })
     res.json(userInfo)
-})
+}))
 // 
 
-app.post('/getMatchHistory', async (req, res) => {
+app.post('/getMatchHistory', catchAsync(async (req, res) => {
     const { puuid } = req.body
     const userMatchHistory = await axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=10&api_key=${API_KEY}`)
         .then((res) => {
             return res.data
         })
     res.json(userMatchHistory)
-})
+}))
 
-app.post('/getMatchData', async (req, res) => {
+app.post('/getMatchData', catchAsync(async (req, res) => {
     const { matchHistory } = req.body
     console.log(matchHistory)
     let fullMatchData = []
@@ -42,7 +45,7 @@ app.post('/getMatchData', async (req, res) => {
 
     }
     res.json(fullMatchData)
-})
+}))
 
 app.post('/getRankedData', catchAsync(async (req, res) => {
     const { id } = req.body;

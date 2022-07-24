@@ -4,6 +4,7 @@ import axios from 'axios'
 import changeBadgeColor from '../util/badge-color'
 import RingLoader from 'react-spinners/RingLoader'
 
+
 function UserCard({ user, wins, loading }) {
 
     // fetches user rank on user load & holds league info (current user rank, etc) and 
@@ -11,6 +12,13 @@ function UserCard({ user, wins, loading }) {
     const [counter, setCounter] = useState(0)
     const [badgeColor, setBadgeColor] = useState('#edf2f4')
 
+
+
+
+
+    //
+
+    // returns ranked data for the usercard
     useEffect(() => {
         if (user) {
             axios.post('http://localhost:3001/getRankedData', { id: user.id })

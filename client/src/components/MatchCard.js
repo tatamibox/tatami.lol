@@ -1,7 +1,25 @@
 import { React, useEffect, useState } from 'react'
 import styles from '../styles/MatchCard.module.css'
+import fetchItemData from '../util/fetch-item-data'
+import ItemCard from './ItemCard'
 function MatchCard(props) {
-    console.log(props)
+
+    // 1. holds info about current hover item on match cards. dynamic hovering for improved performance
+    // 2. functionality for fetching an item and then setting it to the item modal hover state.
+    const [currentItemId, setCurrentItemId] = useState()
+    const [currentItem, setCurrentItem] = useState()
+    useEffect(() => {
+        if (currentItemId) {
+            fetchItemData(currentItemId, setCurrentItem)
+        }
+    }, [currentItemId])
+
+
+    // ^^^^ these are the states to hold the individual item hovers
+
+
+
+    // holds all match (10 past matches) and the one performance in those games from the specified player
     const [allMatches, setAllMatches] = useState()
     const [playerMatchData, setPlayerMatchData] = useState()
     useEffect(() => {
@@ -37,28 +55,32 @@ function MatchCard(props) {
     if (playerMatchData) {
         props.extractPlayerMatchData(playerMatchData)
     }
-    console.log(playerMatchData)
+
     return (
         <>
+            {currentItem && currentItemId && <ItemCard item={currentItem} id={currentItemId}></ItemCard>}
             <section className={styles.matches__section}>
                 {allMatches && playerMatchData && allMatches.map((match, i) => (
                     <div className={styles.card__container} style={{ backgroundColor: `${playerMatchData[i].win ? '#a1c181' : '#dd2d4a'}` }}>
                         <div className={styles.primary__info}>
                             <h3 className={styles.gamemode}>{match.gameMode}</h3>
                             <img className={styles.champion__images} src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/champion/${playerMatchData[i].championName}.png`} alt='Champion Sprite'></img>
+                            <h5 className={styles.champion__level}>Level {playerMatchData[i].champLevel}</h5>
                             <h4>K/D/A: {playerMatchData[i].kills}/{playerMatchData[i].deaths}/{playerMatchData[i].assists}</h4>
                             {playerMatchData[i].pentaKills > 0 && <h5 className={styles.pentakill}>{playerMatchData[i].pentaKills} Penta Kill</h5>}
                         </div>
                         <div className={styles.right__section}>
                             <div className={styles.player__build}>
-                                {playerMatchData[i].item0 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item0}.png`}></img> : null}
-                                {playerMatchData[i].item1 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item1}.png`}></img> : null}
-                                {playerMatchData[i].item2 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item2}.png`}></img> : null}
-                                {playerMatchData[i].item3 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item3}.png`}></img> : null}
-                                {playerMatchData[i].item4 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item4}.png`}></img> : null}
-                                {playerMatchData[i].item5 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item5}.png`}></img> : null}
-                                {playerMatchData[i].item6 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item6}.png`}></img> : null}
+
+                                {playerMatchData[i].item0 ? <div className={styles.image__dynamic}><img className={styles.item__image} onMouseEnter={() => setCurrentItemId(playerMatchData[i].item0)} onMouseLeave={() => setCurrentItemId(undefined)} src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item0}.png`} ></img></div> : null}
+                                {playerMatchData[i].item1 ? <div className={styles.image__dynamic}><img className={styles.item__image} onMouseEnter={() => setCurrentItemId(playerMatchData[i].item1)} onMouseLeave={() => setCurrentItemId(undefined)} src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item1}.png`}></img></div> : null}
+                                {playerMatchData[i].item2 ? <div className={styles.image__dynamic}><img className={styles.item__image} onMouseEnter={() => setCurrentItemId(playerMatchData[i].item2)} onMouseLeave={() => setCurrentItemId(undefined)} src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item2}.png`}></img></div> : null}
+                                {playerMatchData[i].item3 ? <div className={styles.image__dynamic}><img className={styles.item__image} onMouseEnter={() => setCurrentItemId(playerMatchData[i].item3)} onMouseLeave={() => setCurrentItemId(undefined)} src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item3}.png`}></img></div> : null}
+                                {playerMatchData[i].item4 ? <div className={styles.image__dynamic}><img className={styles.item__image} onMouseEnter={() => setCurrentItemId(playerMatchData[i].item4)} onMouseLeave={() => setCurrentItemId(undefined)} src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item4}.png`}></img></div> : null}
+                                {playerMatchData[i].item5 ? <div className={styles.image__dynamic}><img className={styles.item__image} onMouseEnter={() => setCurrentItemId(playerMatchData[i].item5)} onMouseLeave={() => setCurrentItemId(undefined)} src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item5}.png`}></img></div> : null}
+                                {playerMatchData[i].item6 ? <div className={styles.image__dynamic}><img className={styles.item__image} onMouseEnter={() => setCurrentItemId(playerMatchData[i].item6)} onMouseLeave={() => setCurrentItemId(undefined)} src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item6}.png`}></img></div> : null}
                             </div>
+
                         </div>
                     </div>
 

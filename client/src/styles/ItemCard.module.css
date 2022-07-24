@@ -1,0 +1,36 @@
+.card__container {
+    background-color: white;
+    text-align: center;
+    position: absolute;
+    float: left;
+    z-index: 1000;
+    top: 4rem;
+    padding: 1rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 20rem;
+    opacity: 90%;
+    transition: 150ms all ease-in-out;
+
+}
+
+.card__image {
+    border-radius: 0px !important;
+    height: 50%;
+    margin-bottom: -0.5rem;
+}
+
+.position__relative {
+    position: fixed;
+    top: 0;
+    right: 25rem;
+}
+
+.gold__image {
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+    margin-bottom: 0.3rem;
+}

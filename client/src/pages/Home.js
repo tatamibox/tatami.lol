@@ -3,6 +3,7 @@ import searchMatches from './search-matches';
 import UserCard from '../components/UserCard';
 import MatchCard from '../components/MatchCard';
 import LoadingMatchCards from '../components/LoadingMatchCards';
+import ItemCard from '../components/ItemCard';
 import analyzeMatches from '../util/analyze-match-history';
 import styles from '../styles/Home.module.css'
 import axios from 'axios';
@@ -108,6 +109,7 @@ function Home() {
 
     return (
         <>
+
             <form style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
                 <input type='text' placeholder='Enter username...' ref={userSearchRef}></input>
 

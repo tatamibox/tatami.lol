@@ -32,6 +32,11 @@ app.post('/getMatchHistory', catchAsync(async (req, res) => {
         .then((res) => {
             return res.data
         })
+        .catch((err) => {
+
+            console.log(err.response.statusText)
+
+        })
     res.json(userMatchHistory)
 }))
 

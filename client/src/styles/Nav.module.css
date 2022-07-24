@@ -1,8 +1,9 @@
 .__navbar {
-    color: antiquewhite;
+    color: rgb(233, 227, 218);
     font-weight: bold;
     text-align: center;
     margin-top: 1rem;
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: -1rem;
+    font-family: 'Helvetica';
 }

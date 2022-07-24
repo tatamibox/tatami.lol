@@ -27,7 +27,9 @@ export default function changeBadgeColor(param, cb) {
         case 'CHALLENGER':
             cb('#e06d06')
             break;
-
+        case 'Unranked':
+            cb('#ffe5d9')
+            break;
         default: cb('#d0cdd7')
     }
 }

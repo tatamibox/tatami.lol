@@ -25,10 +25,45 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
-.DIAMOND {
-    background-color: red;
+.loader {
+    position: relative;
+    top: 12px;
+    left: 10px;
+}
+
+.loader__holder {
+    margin-top: -1rem;
+}
+
+@media only screen and (min-width: 820px) {
+    .loader {
+        position: relative;
+        top: 12px;
+        left: 10px;
+    }
+
+    .loader__holder {
+        margin-top: 0.2rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .loader__holder {
+        margin-top: -0.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .loader {
+        position: relative;
+        top: auto;
+        left: 10px;
+    }
 }
 
 .summoner__rank {
@@ -53,10 +88,10 @@
 
 @media only screen and (min-width: 1280px) {
     .userCard__container {
-        width: 50%;
+        width: 45%;
         flex-direction: column;
         justify-content: flex-start;
-        text-align: initial;
+        text-align: center;
     }
 }
 
@@ -64,5 +99,6 @@
     .userCard__container {
         flex-direction: row;
         max-height: 23rem;
+        text-align: center;
     }
 }

@@ -37,7 +37,7 @@ function MatchCard(props) {
     if (playerMatchData) {
         props.extractPlayerMatchData(playerMatchData)
     }
-
+    console.log(playerMatchData)
     return (
         <>
             <section className={styles.matches__section}>
@@ -47,16 +47,18 @@ function MatchCard(props) {
                             <h3 className={styles.gamemode}>{match.gameMode}</h3>
                             <img className={styles.champion__images} src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/champion/${playerMatchData[i].championName}.png`} alt='Champion Sprite'></img>
                             <h4>K/D/A: {playerMatchData[i].kills}/{playerMatchData[i].deaths}/{playerMatchData[i].assists}</h4>
+                            {playerMatchData[i].pentaKills > 0 && <h5 className={styles.pentakill}>{playerMatchData[i].pentaKills} Penta Kill</h5>}
                         </div>
-                        <div className={styles.player__build}>
-                            {playerMatchData[i].item0 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item0}.png`}></img> : null}
-                            {playerMatchData[i].item1 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item1}.png`}></img> : null}
-                            {playerMatchData[i].item2 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item2}.png`}></img> : null}
-                            {playerMatchData[i].item3 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item3}.png`}></img> : null}
-                            {playerMatchData[i].item4 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item4}.png`}></img> : null}
-                            {playerMatchData[i].item5 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item5}.png`}></img> : null}
-                            {playerMatchData[i].item6 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item6}.png`}></img> : null}
-
+                        <div className={styles.right__section}>
+                            <div className={styles.player__build}>
+                                {playerMatchData[i].item0 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item0}.png`}></img> : null}
+                                {playerMatchData[i].item1 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item1}.png`}></img> : null}
+                                {playerMatchData[i].item2 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item2}.png`}></img> : null}
+                                {playerMatchData[i].item3 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item3}.png`}></img> : null}
+                                {playerMatchData[i].item4 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item4}.png`}></img> : null}
+                                {playerMatchData[i].item5 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item5}.png`}></img> : null}
+                                {playerMatchData[i].item6 ? <img src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item6}.png`}></img> : null}
+                            </div>
                         </div>
                     </div>
 

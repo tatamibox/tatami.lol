@@ -21,6 +21,15 @@
     justify-content: center;
 }
 
+.right__section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
+    width: 100%;
+
+}
+
 .player__build img {
     height: 2rem;
     width: 2rem;
@@ -96,4 +105,10 @@
 .champion__images {
     width: 7rem;
     height: 7rem;
+}
+
+.pentakill {
+    background-color: #ae2012;
+    padding: 0.1rem 0.2rem;
+    margin-top: -1rem;
 }

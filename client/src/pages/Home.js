@@ -1,5 +1,4 @@
 import { React, useRef, useEffect, useState } from 'react'
-import { SpinnerDotted } from 'spinners-react'
 import searchMatches from './search-matches';
 import UserCard from '../components/UserCard';
 import MatchCard from '../components/MatchCard';
@@ -23,7 +22,6 @@ function Home() {
     const [currentUser, setCurrentUser] = useState()
     const [userWins, setUserWins] = useState(0)
     const [loading, setLoading] = useState(false)
-    console.log(userWins)
     // holds users match history information and match data specific
     const [matchHistory, setMatchHistory] = useState()
     const [matchData, setMatchData] = useState()
@@ -38,6 +36,8 @@ function Home() {
         setMatchData('')
         setMatchHistory('')
         setUserWins('')
+        setUserError(false)
+        setOtherErrors(false)
 
         const userParam = userSearchRef.current.value;
         axios.post('http://localhost:3001/userParam', { username: userParam })
@@ -46,8 +46,22 @@ function Home() {
             })
             .catch((err) => {
                 console.log('There is an error.', err)
+                handleUserError()
             })
 
+        userSearchRef.current.value = ''
+    }
+
+
+    //handles user errors on the front end, other errors
+    const [userError, setUserError] = useState(false)
+    const handleUserError = () => {
+        setUserError(true)
+    }
+    const [otherErrors, setOtherErrors] = useState(false)
+    const [otherErrorMessage, setOtherErrorMessage] = useState('')
+    const handleOtherErrors = () => {
+        setOtherErrors(true)
     }
 
     // searches up user match history, and then sets the match history
@@ -60,6 +74,10 @@ function Home() {
                     console.log(res)
                     const pastGames = res.data
                     setMatchHistory(pastGames)
+                })
+                .catch((err) => {
+                    setOtherErrorMessage(err.response.statusText)
+                    handleOtherErrors()
                 })
         }
 
@@ -74,6 +92,10 @@ function Home() {
                 .then((res) => {
                     setMatchData(res.data)
                 })
+                .catch((err) => {
+                    setOtherErrorMessage(err.response.statusText)
+                    handleOtherErrors()
+                })
         }
     }, [matchHistory])
 
@@ -83,16 +105,18 @@ function Home() {
         }
     }, [userWins])
 
-    console.log(currentUser)
 
     return (
         <>
             <form style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
                 <input type='text' placeholder='Enter username...' ref={userSearchRef}></input>
+
                 <button className='btn btn-outline-light' onClick={submitHandler}>Search</button>
             </form>
+            {userError && <div style={{ color: 'red' }} className='text-center mt-1'>The requested player does not exist.</div>}
+            {otherErrors && <div style={{ color: 'red' }} className='text-center mt-1'>Error: {otherErrorMessage}</div>}
             <main className={styles.__mainContainer}>
-                {currentUser ? <UserCard user={currentUser} wins={userWins} /> : <UserCard />}
+                {currentUser ? <UserCard user={currentUser} wins={userWins} loadingStatus={loading} /> : <UserCard />}
                 <div className={styles.match__container}>
                     {matchData && currentUser && <MatchCard matches={matchData} user={currentUser} extractPlayerMatchData={extractPlayerMatchData} ></MatchCard>}
                     {loading && <LoadingMatchCards />}

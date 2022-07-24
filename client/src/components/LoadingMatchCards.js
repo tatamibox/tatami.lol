@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from '../styles/LoadingMatchCards.module.css'
-import { SpinnerDotted } from 'react-spinner'
 function LoadingMatchCards() {
     return (
         <section className={styles.matches__section}>

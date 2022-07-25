@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const path = require("path");
 const cors = require('cors')
 const catchAsync = require('./utils/catchAsync')
 const dotenv = require('dotenv')
@@ -10,6 +11,9 @@ const PORT = process.env.PORT || 3001
 app.use(express.json());
 app.use(cors())
 
+app.listen(PORT, () => {
+    console.log('Listening on port 3001')
+})
 
 app.post('/userParam', catchAsync(async (req, res) => {
     const { username } = req.body;
@@ -61,7 +65,7 @@ app.post('/getRankedData', catchAsync(async (req, res) => {
     res.json(rankedData)
 }))
 
-const path = require("path");
+
 
 // Step 1:
 if (process.env.NODE_ENV === "production") {
@@ -77,6 +81,3 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen(PORT, () => {
-    console.log('Listening on port 3001')
-})

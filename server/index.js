@@ -10,11 +10,11 @@ const API_KEY = process.env.RIOT_API_KEY
 const PORT = process.env.PORT || 3001
 app.use(express.json());
 const corsOptions = {
-    origin: ["URL ALLOWED", "https://tatamilol.herokuapp.com/"],
+    origin: ["URL ALLOWED", "https://teal-kleicha-20ec09.netlify.app/"],
     credentials: true,
     optionSuccessStatus: 200
 }
-app.use(cors(corsOptions))
+app.use(cors({ origin: true }))
 
 app.listen(PORT, () => {
     console.log('Listening on port 3001')

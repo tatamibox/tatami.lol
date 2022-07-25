@@ -6,27 +6,36 @@ function StatsCorner(props) {
     const [totalKills, setTotalKills] = useState(0)
     const [totalAssists, setTotalAssists] = useState(0)
     const [totalDeaths, setTotalDeaths] = useState(0)
-
+    const [totalCreeps, setTotalCreeps] = useState(0)
     useEffect(() => {
         if (props.data) {
             let kCounter = 0;
             let aCounter = 0;
             let dCounter = 0;
+            let creepCounter = 0;
             for (let game of props.data) {
                 kCounter += game.kills
                 aCounter += game.assists
                 dCounter += game.deaths
+                creepCounter += (game.totalMinionsKilled + game.neutralMinionsKilled)
             }
             setTotalKills(kCounter)
             setTotalAssists(aCounter)
             setTotalDeaths(dCounter)
+            setTotalCreeps(creepCounter)
         }
     }, [props.data])
 
     console.log(totalKills)
     return (
         <section className={styles.sc__container}>
-            <h2>Stats Corner</h2>
+            <h2 className='text-white'>Stats Corner (Past 10 Games)</h2>
+            <div className={styles.stats__section}>
+                <h4>Kills: {totalKills} ({totalKills / 10} / game)</h4>
+                <h4>Assists: {totalAssists} ({totalAssists / 10} / game)</h4>
+                <h4>Deaths: {totalDeaths} ({totalDeaths / 10} / game)</h4>
+                <h5>CS (avg): {totalCreeps / 10}</h5>
+            </div>
         </section>
     )
 }

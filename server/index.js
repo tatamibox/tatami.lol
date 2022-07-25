@@ -6,12 +6,10 @@ const dotenv = require('dotenv')
 require('dotenv').config()
 const axios = require('axios')
 const API_KEY = process.env.RIOT_API_KEY
+const PORT = process.env.PORT || 3001
 app.use(express.json());
 app.use(cors())
 
-app.listen(3001, () => {
-    console.log('Listening on port 3001')
-})
 
 app.post('/userParam', catchAsync(async (req, res) => {
     const { username } = req.body;
@@ -62,3 +60,16 @@ app.post('/getRankedData', catchAsync(async (req, res) => {
         })
     res.json(rankedData)
 }))
+
+const path = require("path");
+
+// Step 1:
+app.use(express.static(path.resolve(__dirname, "./client/build")));
+// Step 2:
+app.get("*", function (request, response) {
+    response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+})
+
+app.listen(PORT, () => {
+    console.log('Listening on port 3001')
+})

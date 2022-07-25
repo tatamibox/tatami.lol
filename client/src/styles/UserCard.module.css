@@ -1,6 +1,5 @@
 .userCard__container {
     background-color: #edf2f4;
-    margin-left: 2rem;
     min-height: 20rem;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -80,7 +79,7 @@
 
 @media only screen and (min-width: 750px) {
     .userCard__container {
-        width: 40%;
+        width: 100%;
         height: fit-content;
 
     }
@@ -88,7 +87,7 @@
 
 @media only screen and (min-width: 1280px) {
     .userCard__container {
-        width: 45%;
+        width: 100%;
         flex-direction: column;
         justify-content: flex-start;
         text-align: center;

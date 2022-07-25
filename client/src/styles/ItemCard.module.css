@@ -27,6 +27,7 @@
     position: fixed;
     top: 0;
     right: 25rem;
+    transition: 150ms all ease-in-out;
 }
 
 .gold__image {

@@ -2,6 +2,7 @@ import { React, useRef, useEffect, useState } from 'react'
 import searchMatches from './search-matches';
 import UserCard from '../components/UserCard';
 import MatchCard from '../components/MatchCard';
+import StatsCorner from '../components/StatsCorner';
 import LoadingMatchCards from '../components/LoadingMatchCards';
 import ItemCard from '../components/ItemCard';
 import analyzeMatches from '../util/analyze-match-history';
@@ -9,7 +10,12 @@ import styles from '../styles/Home.module.css'
 import axios from 'axios';
 function Home() {
 
+    const [playerMatchData, setPlayerMatchData] = useState()
+
+
+    //
     const extractPlayerMatchData = (history) => {
+        setPlayerMatchData(history)
         let winCount = 0;
         for (let match of history) {
             if (match.win === true) {
@@ -106,7 +112,6 @@ function Home() {
         }
     }, [userWins])
 
-
     return (
         <>
 
@@ -118,7 +123,8 @@ function Home() {
             {userError && <div style={{ color: 'red' }} className='text-center mt-1'>The requested player does not exist.</div>}
             {otherErrors && <div style={{ color: 'red' }} className='text-center mt-1'>Error: {otherErrorMessage}</div>}
             <main className={styles.__mainContainer}>
-                {currentUser ? <UserCard user={currentUser} wins={userWins} loadingStatus={loading} /> : <UserCard />}
+                {currentUser ? <section className={styles.left__side}><UserCard user={currentUser} wins={userWins} loadingStatus={loading} /><StatsCorner data={playerMatchData} /></section> : <UserCard />}
+
                 <div className={styles.match__container}>
                     {matchData && currentUser && <MatchCard matches={matchData} user={currentUser} extractPlayerMatchData={extractPlayerMatchData} ></MatchCard>}
                     {loading && <LoadingMatchCards />}

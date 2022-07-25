@@ -54,6 +54,14 @@ function MatchCard(props) {
     }, [allMatches])
     if (playerMatchData) {
         props.extractPlayerMatchData(playerMatchData)
+
+    }
+    //
+
+    // calculates the total time played to display on the match card
+    const calcTimeSpent = (seconds) => {
+        const time = seconds / 60
+        return time
     }
 
     return (
@@ -61,12 +69,13 @@ function MatchCard(props) {
             {currentItem && currentItemId && <ItemCard item={currentItem} id={currentItemId}></ItemCard>}
             <section className={styles.matches__section}>
                 {allMatches && playerMatchData && allMatches.map((match, i) => (
-                    <div className={styles.card__container} style={{ backgroundColor: `${playerMatchData[i].win ? '#a1c181' : '#dd2d4a'}` }}>
+                    <div key={i} className={styles.card__container} style={{ backgroundColor: `${playerMatchData[i].win ? '#a1c181' : '#dd2d4a'}` }}>
                         <div className={styles.primary__info}>
                             <h3 className={styles.gamemode}>{match.gameMode}</h3>
                             <img className={styles.champion__images} src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/champion/${playerMatchData[i].championName}.png`} alt='Champion Sprite'></img>
                             <h5 className={styles.champion__level}>Level {playerMatchData[i].champLevel}</h5>
                             <h4>K/D/A: {playerMatchData[i].kills}/{playerMatchData[i].deaths}/{playerMatchData[i].assists}</h4>
+                            <h4 className={styles.player__kda}>{((playerMatchData[i].kills + playerMatchData[i].assists) / (playerMatchData[i].deaths)).toFixed(2)}</h4>
                             {playerMatchData[i].pentaKills > 0 && <h5 className={styles.pentakill}>{playerMatchData[i].pentaKills} Penta Kill</h5>}
                         </div>
                         <div className={styles.right__section}>
@@ -81,6 +90,10 @@ function MatchCard(props) {
                                 {playerMatchData[i].item6 ? <div className={styles.image__dynamic}><img className={styles.item__image} onMouseEnter={() => setCurrentItemId(playerMatchData[i].item6)} onMouseLeave={() => setCurrentItemId(undefined)} src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/item/${playerMatchData[i].item6}.png`}></img></div> : null}
                             </div>
 
+                            <h4>Total Damage: {playerMatchData[i].totalDamageDealt}</h4>
+                            <h4 className={styles.player__creepScore}>CS: {(playerMatchData[i].totalMinionsKilled + playerMatchData[i].neutralMinionsKilled)}</h4>
+                            <h4 className={styles.player__game__duration}>{calcTimeSpent(playerMatchData[i].timePlayed).toFixed(0)} min.</h4>
+                            <h2 className='text-white'>{playerMatchData[i].lane}</h2>
                         </div>
                     </div>
 

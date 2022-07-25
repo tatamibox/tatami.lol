@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# tatami.lol
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Link: [tatami.lol](https://tatami.lol)
 
-## Available Scripts
+## Technologies Used
+- React.js
+- Express.js
+- Riot API (Pending full usage permission by Riot)
+- Heroku App to host API requests
+- Netlify to host front end
 
-In the project directory, you can run:
+## Project Summary
 
-### `npm start`
+Tatami.lol is a video game statistical analysis tool which takes statistics from a specific player's past ten games, and then presents concisely for the user to see. Multiple API requests are required which return arrays of large amounts of data, in which tatami.lol returns the most important information in which the user should see. Fun features (which are still being built upon) are also implemented, such as a quick randomizer for players to choose which character they are going to play.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How to run locally
+- git clone git@github.com:tatamibox/tatami.lol.git
+- cd into the client and server, and run npm install in both directories
+- open git bash, and node index.js (or nodemon index.js)
+- AN API KEY FROM RIOT IS REQUIRED. THIS PROJECT WILL NOT RUN PROPERLY WITHOUT ONE!)
+- create a .env file and create a variable RIOT_API_KEY={insert the api key you get from riots developer dashboard here}
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You are now free to fully use the app!
 
-### `npm test`
+## Preview
+![Using the App](https://media.giphy.com/media/g0JfXYmppzeGQgOOlg/giphy.gif)
+![Fun Corner!](https://media.giphy.com/media/ddiiy7zZsiIyLUlt9N/giphy.gif)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Credits
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[u.gg](https://u.gg) for inspiration

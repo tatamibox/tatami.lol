@@ -1,0 +1,13 @@
+.hero__main {
+    font-size: 3rem;
+    text-align: center;
+    margin: auto;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    width: 45%;
+    color: rgb(206, 197, 197);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}

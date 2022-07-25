@@ -22,5 +22,33 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    margin-left: 2rem;
+
+}
+
+.home__form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.home__input {
+    background-color: #2b2d42;
+    border: none;
+    border-bottom: 2px solid grey;
+    caret-color: white;
+    color: white;
+}
+
+.home__input:focus {
+    outline: none;
+    caret-color: white;
+}
+
+.footer {
+    color: rgb(186, 178, 167);
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    padding: 1rem 0rem;
+    border-top: 0.8px solid grey;
 }

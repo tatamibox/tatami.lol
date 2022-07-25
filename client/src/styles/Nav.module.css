@@ -1,9 +1,20 @@
 .__navbar {
-    color: rgb(233, 227, 218);
-    font-weight: bold;
+    color: antiquewhite;
+    font-weight: 500;
     text-align: center;
     margin-top: 1rem;
     font-size: 3rem;
     margin-bottom: -1rem;
-    font-family: 'Helvetica';
+    font-family: 'Montserrat';
+}
+
+a {
+    text-decoration: none;
+    color: antiquewhite;
+    transition: 100ms all ease-in-out;
+}
+
+a:hover {
+    text-decoration: none;
+    color: rgb(223, 203, 177);
 }

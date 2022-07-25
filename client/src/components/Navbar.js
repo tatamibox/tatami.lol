@@ -2,8 +2,10 @@ import React from 'react'
 import styles from '../styles/Nav.module.css'
 function Navbar() {
     return (
-        <nav className={styles.__navbar}>tatami.lol</nav>
+        <>
+            <nav className={styles.__navbar}><a href='/'>tatami.lol</a></nav>
+        </>
     )
 }
 
-export default Navbar
+export default Navbar 

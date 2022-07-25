@@ -3,8 +3,11 @@ import searchMatches from './search-matches';
 import UserCard from '../components/UserCard';
 import MatchCard from '../components/MatchCard';
 import StatsCorner from '../components/StatsCorner';
+import FunCorner from '../components/FunCorner';
 import LoadingMatchCards from '../components/LoadingMatchCards';
+import MobileFooter from '../components/MobileFooter';
 import ItemCard from '../components/ItemCard';
+import Hero from '../components/Hero';
 import analyzeMatches from '../util/analyze-match-history';
 import styles from '../styles/Home.module.css'
 import axios from 'axios';
@@ -114,22 +117,26 @@ function Home() {
 
     return (
         <>
+            {!currentUser && <Hero />}
 
-            <form style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
-                <input type='text' placeholder='Enter username...' ref={userSearchRef}></input>
+            <form style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }} className={styles.home__form}>
+                <input type='text' placeholder='Enter username...' ref={userSearchRef} className={styles.home__input}></input>
 
                 <button className='btn btn-outline-light' onClick={submitHandler}>Search</button>
             </form>
+
             {userError && <div style={{ color: 'red' }} className='text-center mt-1'>The requested player does not exist.</div>}
             {otherErrors && <div style={{ color: 'red' }} className='text-center mt-1'>Error: {otherErrorMessage}</div>}
+            {/* main area for all shown profile content and hero */}
             <main className={styles.__mainContainer}>
-                {currentUser ? <section className={styles.left__side}><UserCard user={currentUser} wins={userWins} loadingStatus={loading} /><StatsCorner data={playerMatchData} /></section> : <UserCard />}
+                {currentUser ? <section className={styles.left__side}><UserCard user={currentUser} wins={userWins} loadingStatus={loading} /><StatsCorner data={playerMatchData} /><FunCorner /></section> : <UserCard />}
 
                 <div className={styles.match__container}>
                     {matchData && currentUser && <MatchCard matches={matchData} user={currentUser} extractPlayerMatchData={extractPlayerMatchData} ></MatchCard>}
                     {loading && <LoadingMatchCards />}
                 </div>
             </main>
+            {!currentUser && <MobileFooter />}
         </>
     )
 }

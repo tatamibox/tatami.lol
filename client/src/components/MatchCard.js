@@ -63,7 +63,7 @@ function MatchCard(props) {
         const time = seconds / 60
         return time
     }
-
+    console.log(playerMatchData)
     return (
         <>
             {currentItem && currentItemId && <ItemCard item={currentItem} id={currentItemId}></ItemCard>}
@@ -75,7 +75,7 @@ function MatchCard(props) {
                             <img className={styles.champion__images} src={`https://ddragon.leagueoflegends.com/cdn/12.13.1/img/champion/${playerMatchData[i].championName}.png`} alt='Champion Sprite'></img>
                             <h5 className={styles.champion__level}>Level {playerMatchData[i].champLevel}</h5>
                             <h4>K/D/A: {playerMatchData[i].kills}/{playerMatchData[i].deaths}/{playerMatchData[i].assists}</h4>
-                            <h4 className={styles.player__kda}>{((playerMatchData[i].kills + playerMatchData[i].assists) / (playerMatchData[i].deaths)).toFixed(2)}</h4>
+                            <h4 className={styles.player__kda}>{playerMatchData[i].deaths !== 0 ? ((playerMatchData[i].kills + playerMatchData[i].assists) / (playerMatchData[i].deaths)).toFixed(2) : (playerMatchData[i].kills + playerMatchData[i].assists)}</h4>
                             {playerMatchData[i].pentaKills > 0 && <h5 className={styles.pentakill}>{playerMatchData[i].pentaKills} Penta Kill</h5>}
                         </div>
                         <div className={styles.right__section}>

@@ -1,0 +1,10 @@
+const championsByRoles = [
+    ['Amumu', 'Belveth', 'Diana', 'Nidalee', 'Nocturne', 'Nunu', 'Olaf', 'DrMundo', 'Poppy', 'Ekko', 'Elise', 'Evelynn', 'Rammus', 'RekSai', 'Rengar', 'Fiddlesticks', 'Sejuani', 'Shaco', 'Shyvana', 'Skarner', 'Hecarim', 'Taliyah', 'Trundle', 'Ivern', 'Udyr', 'JarvanIV', 'Jax', 'Vi', 'Viego', 'Volibear', 'Karthus', 'Kayn', 'Khazix', 'Kindred', 'Kled', 'Warwick', 'XinZhao', 'LeeSin', 'Lillia', 'MasterYi', 'Zac'],
+    ['Aatrox', 'Olaf', 'Ornn', 'Pantheon', 'Poppy', 'Camille', 'Cassiopeia', 'Chogath', 'Quinn', 'Darius', 'DrMundo', 'Fiora', 'Renekton', 'Rengar', 'Riven', 'Rumble', 'Ryze', 'Sett', 'Shen', 'Singed', 'Sion', 'Swain', 'Sylas', 'Gangplank', 'Garen', 'Gnar', 'Gwen', 'Urgot', 'Jax', 'Jayce', 'Illaoi', 'Irelia', 'Hecarim', 'Heimgerdinger', 'TahmKench', 'Teemo', 'Tryndamere', 'Jax', 'Jayce', 'Vayne', 'Vladimir', 'Volibear', 'Karma', 'Kayle', 'Kennen', 'Kled', 'Lillia', 'Lucian', 'Yasuo', 'Yorick', 'Zac', 'Malphite', 'Maokai', 'Mordekaiser', 'Nasus', 'Nocturne'],
+    ['Alistar', 'Pantheon', 'Poppy', 'Pyke', 'Rakan', 'RenataGlasc', 'Bard', 'Blitzcrank', 'Brand', 'Braum', 'Galio', 'Senna', 'Sett', 'Shaco', 'Shen', 'Sona', 'Soraka', 'Swain', 'Janna', 'Karma', 'Leona', 'Lulu', 'Lux', 'TahmKench', 'Taric', 'Thresh', 'VelKoz', 'Xerath', 'Malphite', 'Maokai', 'Morgana', 'Nami', 'Nautilus', 'Yuumi', 'Zac', 'Zilean', 'Zyra'],
+    ['Aphelios', 'Ashe', 'Nilah', 'Senna', 'Sivir', 'Swain', 'Caitlyn', 'Cassiopeia', 'Draven', 'Tristana', 'Twitch', 'Ezreal', 'Varus', 'Vayne', 'Xayah', 'Jhin', 'Jinx', 'Kaisa', 'Kalista', 'KogMaw', 'Lucian', 'Yasuo', 'Zeri', 'Ziggs', 'MissFortune'],
+    ['Ahri', 'Akali', 'Akshan', 'Anivia', 'Annie', 'AurelionSol', 'Azir', 'Malzahar', 'Neeko', 'Cassiopeia', 'Corki', 'Orianna', 'Qiyana', 'Diana', 'Ekko', 'Ryze', 'Fizz', 'Syndra', 'Sylas', 'Galio', 'Taliyah', 'Talon', 'TwistedFate', 'Veigar', 'VelKoz', 'Viktor', 'Vladimir', 'Jayce', 'Xerath', 'Kassadin', 'Katarina', 'LeBlanc', 'Lissandra', 'Lux', 'Zed', 'Ziggs', 'Zilean', 'Zoe']
+]
+
+
+export default championsByRoles;

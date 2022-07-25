@@ -9,7 +9,12 @@ const axios = require('axios')
 const API_KEY = process.env.RIOT_API_KEY
 const PORT = process.env.PORT || 3001
 app.use(express.json());
-app.use(cors())
+const corsOptions = {
+    origin: ["URL ALLOWED", "https://tatamilol.herokuapp.com/"],
+    credentials: true,
+    optionSuccessStatus: 200
+}
+app.use(cors(corsOptions))
 
 app.listen(PORT, () => {
     console.log('Listening on port 3001')

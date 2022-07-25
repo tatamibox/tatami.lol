@@ -4,8 +4,8 @@
   "description": "tatami.lol is a League of Legends statistics analysis tool.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {

@@ -72,17 +72,3 @@ app.post('/getRankedData', catchAsync(async (req, res) => {
 
 
 
-// Step 1:
-if (process.env.NODE_ENV === "production") {
-    // Set the static assets folder (ie, client build)
-    app.use(express.static('client/build'));
-    app.get('*', function (req, res) {
-        const fullPath = path.join(__dirname, '../client', 'build', 'index.html')
-        res.sendFile(fullPath)
-    })
-}
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
-
-

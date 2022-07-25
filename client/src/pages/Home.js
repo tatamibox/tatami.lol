@@ -50,7 +50,7 @@ function Home() {
         setOtherErrors(false)
 
         const userParam = userSearchRef.current.value;
-        axios.post('http://localhost:3001/userParam', { username: userParam })
+        axios.post('https://tatamilel.herokuapp.com/userParam', { username: userParam })
             .then((res) => {
                 setCurrentUser(res.data)
             })
@@ -77,7 +77,7 @@ function Home() {
     // searches up user match history, and then sets the match history
     useEffect(() => {
         if (currentUser) {
-            axios.post('http://localhost:3001/getMatchHistory', {
+            axios.post('https://tatamilel.herokuapp.com/getMatchHistory', {
                 puuid: currentUser.puuid
             })
                 .then((res) => {
@@ -96,7 +96,7 @@ function Home() {
 
     useEffect(() => {
         if (matchHistory) {
-            axios.post('http://localhost:3001/getMatchData', {
+            axios.post('https://tatamilel.herokuapp.com/getMatchData', {
                 matchHistory: matchHistory
             })
                 .then((res) => {

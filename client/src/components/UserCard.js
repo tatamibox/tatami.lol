@@ -21,7 +21,7 @@ function UserCard({ user, wins, loading }) {
     // returns ranked data for the usercard
     useEffect(() => {
         if (user) {
-            axios.post('https://tatamilel.herokuapp.com/getRankedData', { id: user.id })
+            axios.post('tatsever.vercel.app/getRankedData', { id: user.id })
                 .then((res) => {
                     setLeagueInfo(res.data[0])
                     setCounter(counter + 1)

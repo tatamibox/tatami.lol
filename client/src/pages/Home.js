@@ -50,7 +50,7 @@ function Home() {
         setOtherErrors(false)
 
         const userParam = userSearchRef.current.value;
-        axios.post('https://tatamilel.herokuapp.com/userParam', { username: userParam })
+        axios.post('https://tatsever.vercel.app/userParam', { username: userParam })
             .then((res) => {
                 setCurrentUser(res.data)
             })
@@ -77,7 +77,7 @@ function Home() {
     // searches up user match history, and then sets the match history
     useEffect(() => {
         if (currentUser) {
-            axios.post('https://tatamilel.herokuapp.com/getMatchHistory', {
+            axios.post('https://tatsever.vercel.app/getMatchHistory', {
                 puuid: currentUser.puuid
             })
                 .then((res) => {
@@ -96,7 +96,7 @@ function Home() {
 
     useEffect(() => {
         if (matchHistory) {
-            axios.post('https://tatamilel.herokuapp.com/getMatchData', {
+            axios.post('https://tatsever.vercel.app/getMatchData', {
                 matchHistory: matchHistory
             })
                 .then((res) => {
